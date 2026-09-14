@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sito Web Moderno & Flessibile</title>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- CSS Personalizzato -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <span class="logo-icon">⚡</span> Studio<span class="highlight">Flow</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#hero">Hero</a>
+        <a href="#grid">Servizi</a>
+        <a href="#showcase">Showcase</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="themeToggle" class="btn-icon" aria-label="Cambia Tema">
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span>
+        </button>
+        <button id="openDrawer" class="btn btn-outline">Impostazioni</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- MODELLO 1: HERO SECTION DINAMICA 3D -->
+    <section id="hero" class="hero-section">
+      <div class="glow-bg"></div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <span class="badge">🚀 Prossima Generazione</span>
+          <h1>Esperienze Web <span class="gradient-text">Flessibili & Eleganti</span></h1>
+          <p>Un'interfaccia moderna e responsive costruita con pura architettura HTML5, CSS3 avanzato e JavaScript moderno senza dipendenze pesanti.</p>
+          <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="openModal('Inizia Ora', 'Hai cliccato sul pulsante principale della Hero Section!')">Esplora Demo</button>
+            <a href="#grid" class="btn btn-secondary">Scopri i Componenti</a>
+          </div>
+        </div>
+        
+        <!-- Interactive 3D Tilt Card -->
+        <div class="hero-visual">
+          <div class="tilt-card" id="tiltCard">
+            <div class="card-glass">
+              <div class="card-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="card-body">
+                <h3>UI/UX Interactive</h3>
+                <p>Muovi il mouse su questa scheda per apprezzare l'effetto prospettico 3D in tempo reale.</p>
+                <div class="stat-bar">
+                  <span>Performance</span>
+                  <div class="progress"><div class="fill" style="width: 98%;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODELLO 2: FLEXIBLE CARD GRID CON FILTRI & RICERCA -->
+    <section id="grid" class="grid-section">
+      <div class="section-header">
+        <h2>Servizi & Servizi Flessibili</h2>
+        <p>Filtra e cerca tra le nostre risorse con micro-interazioni fluide.</p>
+        
+        <!-- Filtri e Ricerca -->
+        <div class="filter-controls">
+          <input type="text" id="searchInput" placeholder="Cerca componenti..." class="search-input" />
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Tutti</button>
+            <button class="filter-btn" data-filter="design">Design</button>
+            <button class="filter-btn" data-filter="dev">Sviluppo</button>
+            <button class="filter-btn" data-filter="analytics">Analytics</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Grid -->
+      <div class="cards-grid" id="cardsContainer">
+        <!-- Card 1 -->
+        <article class="card" data-category="design">
+          <div class="card-tag">Design</div>
+          <h3>UI Kit Reattivo</h3>
+          <p>Sistemi di design scalabili con variabili CSS pronte per il tema scuro/chiaro.</p>
+          <button class="card-link" onclick="openModal('UI Kit Reattivo', 'Dettagli completi sul sistema di design.')">Scopri di più &rarr;</button>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card" data-category="dev">
+          <div class="card-tag">Sviluppo</div>
+          <h3>Codice Modulare</h3>
+          <p>Script JS essenziale e performante, privo di framework pesanti.</p>
+          <button class="card-link" onclick="openModal('Codice Modulare', 'Istruzioni sull architettura JS puro.')">Scopri di più &rarr;</button>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card" data-category="analytics">
+          <div class="card-tag">Analytics</div>
+          <h3>Statistiche Live</h3>
+          <p>Integrazione semplice per monitorare le metriche di interazione utente.</p>
+          <button class="card-link" onclick="openModal('Statistiche Live', 'Dashboard metrica avanzata.')">Scopri di più &rarr;</button>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card" data-category="design">
+          <div class="card-tag">Design</div>
+          <h3>Layout Flessibile</h3>
+          <p>Griglie responsive realizzate con CSS Grid e Flexbox senza media-queries complesse.</p>
+          <button class="card-link" onclick="openModal('Layout Flessibile', 'Dettagli sui layout fluidi.')">Scopri di più &rarr;</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- MODELLO 3: SHOWCASE INTERATTIVO CON ACCORDION -->
+    <section id="showcase" class="showcase-section">
+      <div class="section-header">
+        <h2>Showcase Interattivo</h2>
+        <p>Seleziona una scheda per aggiornare dinamicamente il contenuto visivo.</p>
+      </div>
+
+      <div class="showcase-container">
+        <!-- Accordion / Tabs -->
+        <div class="accordion-list">
+          <div class="accordion-item active" data-target="tab-1">
+            <div class="accordion-title">01. Prestazioni Elevate</div>
+            <div class="accordion-content">Caricamento ultra-rapido con un footprint di memoria minimo e animazioni GPU-accelerate.</div>
+          </div>
+          <div class="accordion-item" data-target="tab-2">
+            <div class="accordion-title">02. Piena Accessibilità</div>
+            <div class="accordion-content">Navigazione ottimizzata per tastiera e contrasti di colore conformi agli standard WCAG.</div>
+          </div>
+          <div class="accordion-item" data-target="tab-3">
+            <div class="accordion-title">03. Personalizzazione Avanzata</div>
+            <div class="accordion-content">Facile cambio di temi, colori primari e layout tramite semplici variabili CSS.</div>
+          </div>
+        </div>
+
+        <!-- Dynamic Display Box -->
+        <div class="showcase-display">
+          <div class="display-card active" id="tab-1">
+            <span class="display-icon">🚀</span>
+            <h3>Ottimizzazione Speed</h3>
+            <p>100/100 su Google Lighthouse con codice pulito ed efficiente.</p>
+          </div>
+          <div class="display-card" id="tab-2">
+            <span class="display-icon">♿</span>
+            <h3>Accessibilità Standard</h3>
+            <p>Supporto lettori di schermo e focus state ben definiti.</p>
+          </div>
+          <div class="display-card" id="tab-3">
+            <span class="display-icon">🎨</span>
+            <h3>Design System</h3>
+            <p>Sfumature, ombre e tipografia regolabili in 1 riga di codice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL / FINESTRA DI DIALOGO -->
+  <div id="modal" class="modal-overlay">
+    <div class="modal-box">
+      <button id="closeModal" class="modal-close">&times;</button>
+      <h3 id="modalTitle">Titolo Modale</h3>
+      <p id="modalBody">Questo è il testo informativo della modale.</p>
+      <div class="modal-actions">
+        <button class="btn btn-primary" onclick="closeModal()">Capito</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DRAWER LATERALE -->
+  <div id="drawer" class="drawer-overlay">
+    <div class="drawer-content">
+      <div class="drawer-header">
+        <h3>Pannello Impostazioni</h3>
+        <button id="closeDrawer" class="modal-close">&times;</button>
+      </div>
+      <div class="drawer-body">
+        <p>Personalizza l'esperienza di navigazione:</p>
+        <div class="setting-item">
+          <label for="colorPicker">Colore Primario Accent:</label>
+          <input type="color" id="colorPicker" value="#6366f1">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Personalizzato -->
+  <script src="script.js"></script>
+</body>
+</html>
